@@ -1,0 +1,36 @@
+c++ program to do a breadth first traversal of a binary tree using standard template library
+
+#include<iostream>
+#include<stdlib.h>
+#include<stack>
+  using namespace std;
+  struct node
+  {
+  int data;
+  struct node* left;
+  struct node* right;
+  }; 
+  struct node* newnode(int data)
+  {
+  struct node* node=(struct node*)malloc(sizeof(struct node));
+  node->data=data;
+  node->left=NULL;
+  node->right=NULL;
+  return(node);
+  }
+  void levelorder(struct node* node)
+  {
+    queue<struct node* node>q;
+      if(node==NULL)
+      return;
+       struct node* temp=node;
+      while(temp)
+      {
+        printf("%d\n",temp->data);
+         if(temp->left)
+         q.push(temp->left);
+          if(temp->right)
+           q.push(temp->right);
+           temp=q.pop();
+       }
+       }
