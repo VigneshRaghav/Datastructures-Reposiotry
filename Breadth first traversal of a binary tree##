@@ -1,8 +1,8 @@
 c++ program to do a breadth first traversal of a binary tree using standard template library
 
-#include<iostream>
-#include<stdlib.h>
-#include<stack>
+#include<iostream> // c++ header file for standard input and output
+#include<stdlib.h> // header file for allocating memory dynamically
+#include<stack> // c++ header file for standard tremplate library
   using namespace std;
   struct node
   {
@@ -20,17 +20,17 @@ c++ program to do a breadth first traversal of a binary tree using standard temp
   }
   void levelorder(struct node* node)
   {
-    queue<struct node* node>q;
-      if(node==NULL)
+    queue<struct node* node>q; //creating a queue for pushing the nodes one by one in fifo fashion
+      if(node==NULL) // base condition 
       return;
        struct node* temp=node;
       while(temp)
       {
-        printf("%d\n",temp->data);
+        printf("%d\n",temp->data); // print the root first
          if(temp->left)
-         q.push(temp->left);
+         q.push(temp->left); // and then  push the nodes into the queue first and print
           if(temp->right)
-           q.push(temp->right);
+           q.push(temp->right); // push the right nodes next and pop them out from the queue
            temp=q.pop();
        }
        }
