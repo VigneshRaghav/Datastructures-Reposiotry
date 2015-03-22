@@ -1,0 +1,29 @@
+c program for doing a reverse inorder traversal.Reverse inorder traversal can be especially useful particularly for 
+binary search trees inorder to get data in increasing order which is needed for some applications.Normal inorder ,preorder
+and postorder traversals do not get the data in increasing order.So it is useful for doing a reverse inorder traversal
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+int data;
+struct node* left;
+struct node* right;
+};
+struct node* newnode(int data)
+{
+struct node* node=(struct node*)malloc(sizeof(struct node));
+node->data=data;
+node->left=NULL;
+node->right=NULL;
+return(node);
+}
+void reverseinorder(struct node* node)
+{
+if(node==NULL)
+ return;
+ reverseinorder(node->right);
+ printf("%d\n",node->data);
+ reverseinorder(node->left);
+ }
+ // driver program can be written for testing the above code
